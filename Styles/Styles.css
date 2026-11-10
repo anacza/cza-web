@@ -1,0 +1,645 @@
+/* ==========================================
+   1. ESTILOS GENERALES
+   Se aplican a todas las páginas
+   ========================================== */
+
+/* Importamos la tipografía Montserrat.
+   El @import debe estar antes de las reglas CSS. */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Usamos rem para tamaños y espacios.
+   1rem equivale a 16px cuando el tamaño raíz es 16px.
+   No modificamos ese tamaño raíz. */
+
+/* Reinicio general:
+   quitamos márgenes y rellenos iniciales.
+   border-box incluye padding y borde en el tamaño indicado. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Tipografía de todo el sitio */
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+
+/* ==========================================
+   2. ENCABEZADO Y NAVEGACIÓN
+   Compartidos por todas las páginas
+   ========================================== */
+
+/* Encabezado: fondo oscuro y elementos en columna */
+header {
+    background-color: #282828;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* Espacio interior del encabezado */
+    padding: 1rem;
+
+    /* Separación entre sus elementos */
+    gap: 1.5rem;
+}
+
+/* Tamaño del logo */
+header img {
+    width: 9.37rem;
+}
+
+/* Lista de enlaces del menú */
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    list-style: none;
+}
+
+/* Apariencia general de los enlaces del menú */
+nav a {
+    color: #F5EFE3;
+    text-decoration-line: none;
+}
+
+/* Color de los enlaces dentro del menú de Bootstrap */
+header .navbar-nav .nav-link {
+    color: #F5EFE3;
+}
+
+/* Color del enlace correspondiente a la página actual */
+header .navbar-nav .nav-link.active {
+    color: #B65F4A;
+}
+
+
+/* ==========================================
+   3. PÁGINA INICIO
+   Grilla principal, presentación y botón
+   ========================================== */
+
+/* Tres filas: encabezado, contenido y pie.
+   La fila central ocupa el espacio disponible. */
+.inicio {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "encabezado"
+        "principal"
+        "pie";
+}
+
+/* Ubicamos cada elemento dentro de la grilla */
+.inicio > header {
+    grid-area: encabezado;
+}
+
+.inicio > main {
+    grid-area: principal;
+}
+
+.inicio > footer {
+    grid-area: pie;
+}
+
+/* HERO: bloque principal de presentación */
+.hero {
+    background-color: #282828;
+    color: #F5EFE3;
+
+    /* Altura mínima: 70% de la altura de la ventana */
+    min-height: 70vh;
+
+    /* Centramos el contenido en ambos ejes */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 1rem;
+    padding: 2rem;
+}
+
+/* Título principal de Inicio */
+.hero h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    word-spacing: 1rem;
+    text-align: center;
+}
+
+/* Texto de presentación */
+.hero p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    text-align: center;
+
+    /* Interlineado proporcional al tamaño del texto */
+    line-height: 1.6;
+
+    /* Limitamos el ancho para facilitar la lectura */
+    max-width: 40rem;
+}
+
+/* Botón CONOCER CZA */
+.button {
+    background-color: #B65F4A;
+    color: #F5EFE3;
+    text-decoration: none;
+    font-weight: 600;
+
+    /* Separación exterior por encima del botón */
+    margin-top: 3rem;
+
+    /* Espacio interior: arriba y abajo | costados */
+    padding: 1rem 2rem;
+}
+/* GALERÍA DE INICIO: título y carrusel */
+.galeria-inicio {
+    background-color: #F5EFE3;
+    color: #282828;
+    padding: 2rem 1rem;
+}
+
+/* Título centrado y separado de las fotos */
+.galeria-inicio h2 {
+    text-align: center;
+    margin: 0 0 1rem;
+}
+
+/* CARRUSEL: ancho reducido y centrado */
+#carruselCaballos {
+    max-width: 28rem;
+    margin: 0 auto;
+    background-color: #282828;
+}
+
+/* Marco de igual altura para ambas fotos.
+   contain permite verlas completas sin deformarlas. */
+/* FOTOS DEL CARRUSEL
+   Se muestran completas y conservan su proporción.
+   La altura puede variar entre una foto y otra. */
+#carruselCaballos .carousel-item img {
+    width: 100%;
+    height: auto;
+}
+
+/* Fondo para distinguir las flechas sobre las fotos */
+#carruselCaballos .carousel-control-prev-icon,
+#carruselCaballos .carousel-control-next-icon {
+    background-color: #282828;
+    border-radius: 0.25rem;
+}
+/* ==========================================
+   INICIO: PREGUNTAS FRECUENTES
+   Personalización del acordeón de Bootstrap
+   ========================================== */
+
+/* Fondo y espacio interior de la sección */
+.preguntas-inicio {
+    background-color: #F5EFE3;
+    color: #282828;
+    padding: 2rem 1rem;
+}
+
+/* Título de la sección */
+.preguntas-inicio h2 {
+    text-align: center;
+    margin: 0 0 1rem;
+}
+
+/* Limitamos el ancho y centramos el acordeón */
+.preguntas-inicio .accordion {
+    max-width: 50rem;
+    margin: 0 auto;
+}
+
+/* Fondo y borde de cada pregunta */
+.preguntas-inicio .accordion-item {
+    background-color: #F5EFE3;
+    border-color: #B65F4A;
+}
+
+/* Apariencia de los botones que abren las respuestas */
+.preguntas-inicio .accordion-button {
+    background-color: #F5EFE3;
+    color: #282828;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Color de la pregunta cuando está abierta */
+.preguntas-inicio .accordion-button:not(.collapsed) {
+    background-color: #282828;
+    color: #F5EFE3;
+}
+
+/* Texto de las respuestas */
+.preguntas-inicio .accordion-body {
+    color: #282828;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* ========== FIN PREGUNTAS FRECUENTES ========== */
+/* ========== FIN PÁGINA INICIO ========== */
+
+
+/* ==========================================
+   4. BASE DE LAS PÁGINAS INTERNAS
+   Reglas compartidas por Caballos,
+   Entrenamiento, Clases y Contacto
+   ========================================== */
+
+/* PRESENTACIÓN: título y descripción de cada página */
+.contenido {
+    background-color: #F5EFE3;
+    color: #282828;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+/* Títulos principales de las páginas internas */
+.contenido h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* Descripción debajo del título principal */
+.contenido p {
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+/* DETALLE: bloques de información.
+   Cada página puede ajustar estos espacios más abajo. */
+.detalle {
+    background-color: #F5EFE3;
+    color: #282828;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+
+/* ==========================================
+   5. PÁGINA CABALLOS
+   Fichas con foto, descripción y pedigrí
+   ========================================== */
+
+/* En pantallas pequeñas:
+   foto arriba y descripción debajo */
+.caballos {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "foto"
+        "descripcion";
+
+    /* Separación entre foto y descripción */
+    gap: 1rem;
+    align-items: start;
+
+    /* Ancho máximo de la ficha */
+    max-width: 62.5rem;
+
+    /* Espacio interior */
+    padding: 1rem;
+
+    /* Separación vertical y centrado horizontal */
+    margin: 1rem auto;
+
+    border: 0.1rem solid #B65F4A;
+}
+
+/* Foto principal: solo la imagen hija directa de la ficha */
+.caballos > img {
+    grid-area: foto;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Bloque que contiene nombre, descripción y pedigrí */
+.caballos div {
+    grid-area: descripcion;
+    display: flex;
+    flex-direction: column;
+
+    /* Separación entre los elementos de la descripción */
+    gap: 0.5rem;
+
+    /* Permite que el bloque se reduzca dentro de la grilla */
+    min-width: 0;
+}
+
+/* Quitamos el margen inferior del nombre del caballo */
+.caballos h2 {
+    margin-bottom: 0;
+}
+
+/* ========== FIN PÁGINA CABALLOS ========== */
+
+
+/* ==========================================
+   6. PÁGINA CLASES
+   Solo afecta al main con clase pagina-clases
+   ========================================== */
+
+/* PRESENTACIÓN: título CLASES y descripción */
+.pagina-clases .contenido {
+    /* Espacio interior: arriba y abajo | costados */
+    padding: 0.5rem 2rem;
+
+    /* Separación entre título y descripción */
+    gap: 0.5rem;
+}
+
+/* Bloques de cada modalidad de clase */
+.pagina-clases .detalle {
+    padding: 1rem 2rem;
+
+    /* Separación entre subtítulo y texto */
+    gap: 0.5rem;
+}
+
+/* Quitamos márgenes de títulos y párrafos.
+   Los espacios se controlan con gap y padding. */
+.pagina-clases h1,
+.pagina-clases h2,
+.pagina-clases p {
+    margin: 0;
+}
+/* ACORDEÓN DE CLASES
+   Presenta las tres propuestas en bloques desplegables. */
+
+/* Ancho, centrado y separación exterior */
+.pagina-clases .acordeon-clases {
+    max-width: 60rem;
+    margin: 1rem auto 2rem;
+    padding: 0 1rem;
+}
+
+/* Colores propios aplicados al componente Bootstrap */
+.acordeon-clases .accordion-item {
+    background-color: #F5EFE3;
+    border-color: #B65F4A;
+}
+
+/* Botones con los nombres de las propuestas */
+.acordeon-clases .accordion-button {
+    background-color: #F5EFE3;
+    color: #282828;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Pregunta abierta o señalada con el mouse */
+.acordeon-clases .accordion-button:not(.collapsed),
+.acordeon-clases .accordion-button:hover {
+    background-color: #282828;
+    color: #F5EFE3;
+}
+
+/* Legibilidad del contenido desplegado */
+.acordeon-clases .accordion-body {
+    color: #282828;
+    line-height: 1.6;
+}
+
+/* Separación entre los dos párrafos de Entrenamiento */
+.acordeon-clases .accordion-body p + p {
+    margin-top: 0.5rem;
+}
+
+/* ========== FIN PÁGINA CLASES ========== */
+
+
+/* ==========================================
+   7. PÁGINA ENTRENAMIENTO
+   Solo afecta al main con clase
+   pagina-entrenamiento
+   ========================================== */
+
+/* PRESENTACIÓN: título ENTRENAMIENTO y descripción */
+.pagina-entrenamiento .contenido {
+    /* Espacio interior debajo de la presentación.
+       El resto del padding viene de .contenido. */
+    padding-bottom: 1.5rem;
+
+    /* Separación entre título y descripción */
+    gap: 0.25rem;
+}
+
+/* Quitamos el margen inferior del título principal */
+.pagina-entrenamiento .contenido h1 {
+    margin-bottom: 0;
+}
+
+/* Quitamos el margen inferior de la descripción */
+.pagina-entrenamiento .contenido p {
+    margin-bottom: 0;
+}
+
+/* Bloque ¿CÓMO TRABAJAMOS? */
+.pagina-entrenamiento .detalle {
+    /* Espacio interior antes de la pregunta */
+    padding-top: 0.5rem;
+
+    /* Separación entre la pregunta y su texto */
+    gap: 0.5rem;
+}
+
+/* Quitamos el margen inferior de la pregunta */
+.pagina-entrenamiento .detalle h2 {
+    margin-bottom: 0;
+}
+
+/* ========== FIN PÁGINA ENTRENAMIENTO ========== */
+
+
+/* ==========================================
+   8. PÁGINA CONTACTO
+   Solo afecta al main con clase pagina-contacto
+   ========================================== */
+
+/* PRESENTACIÓN: título CONTACTO y descripción */
+.pagina-contacto .contenido {
+    /* Espacio interior: arriba | costados | abajo */
+    padding: 1rem 2rem 0.5rem;
+
+    /* Separación entre título y descripción */
+    gap: 0.25rem;
+}
+
+/* DATOS DE CONTACTO: subtítulo, texto y enlaces */
+.pagina-contacto .detalle {
+    /* Espacio interior: arriba | costados | abajo */
+    padding: 0.5rem 2rem 1rem;
+
+    /* Separación entre los elementos del bloque */
+    gap: 0.5rem;
+}
+
+/* Quitamos márgenes de títulos y párrafos.
+   Los espacios se controlan con gap y padding. */
+.pagina-contacto h1,
+.pagina-contacto h2,
+.pagina-contacto p {
+    margin: 0;
+}
+
+/* ========== FIN PÁGINA CONTACTO ========== */
+
+
+/* ==========================================
+   9. PIE DE PÁGINA
+   Compartido por todas las páginas
+   ========================================== */
+
+footer {
+    background-color: #282828;
+    color: #F5EFE3;
+    text-align: center;
+}
+
+
+/* ==========================================
+   10. ADAPTACIÓN A PANTALLAS GRANDES
+   Estas reglas se aplican desde 64rem
+   ========================================== */
+
+@media (min-width: 64rem) {
+
+    /* ENCABEZADO: distribución horizontal */
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    /* CABALLOS: foto y descripción en dos columnas.
+       La descripción ocupa el doble que la foto. */
+    .caballos {
+        grid-template-columns: 1fr 2fr;
+        grid-template-areas: "foto descripcion";
+    }
+
+    /* INICIO: aumentamos el tamaño del título */
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    /* PEDIGRÍ: ocupa el ancho disponible.
+       Conservamos esta regla dentro del @media,
+       tal como estaba en tu archivo. */
+    .pedigree {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+/* ========== FIN DE ESTILOS ========== */
+/* ==========================================
+   11. DISTRIBUCIÓN DE PÁGINAS INTERNAS
+   Caballos, Entrenamiento, Clases y Contacto
+   ========================================== */
+
+/* Todas las páginas excepto Inicio:
+   encabezado arriba, contenido flexible y pie abajo */
+body:not(.inicio) {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+    background-color: #F5EFE3;
+}
+
+/* El contenido principal ocupa la fila central */
+body:not(.inicio) > main {
+    min-width: 0;
+}
+
+/* Limitamos el ancho de los bloques de texto.
+   En ventanas pequeñas se adaptan al espacio disponible. */
+body:not(.inicio) .detalle {
+    width: 100%;
+    max-width: 62.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Quitamos el margen del párrafo del pie */
+body:not(.inicio) > footer p {
+    margin: 0;
+}
+
+/* ========== FIN DISTRIBUCIÓN INTERNA ========== */
+/* ==========================================
+   INTERACCIONES — TODAS LAS PÁGINAS
+   Enlaces y botones: mouse, teclado y clic
+   ========================================== */
+
+/* TRANSICIONES: suavizan los cambios de color */
+a,
+button {
+    transition: color 0.2s ease,
+                background-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+/* HOVER: al pasar el mouse sobre el menú */
+header .navbar-nav .nav-link:hover {
+    color: #B65F4A;
+}
+
+/* HOVER: botón CONOCER CZA */
+.button:hover {
+    background-color: #914735;
+    color: #F5EFE3;
+}
+
+/* HOVER: enlaces de contacto */
+.pagina-contacto .detalle a:hover {
+    color: #914735;
+}
+
+/* HOVER: preguntas del acordeón */
+.preguntas-inicio .accordion-button:hover {
+    background-color: #282828;
+    color: #F5EFE3;
+}
+
+/* HOVER: controles del carrusel y menú hamburguesa */
+.carousel-control-prev:hover,
+.carousel-control-next:hover,
+.navbar-toggler:hover {
+    background-color: rgba(182, 95, 74, 0.2);
+}
+
+/* FOCUS: indica qué enlace o botón está seleccionado.
+   Se puede comprobar navegando con la tecla Tab. */
+a:focus,
+button:focus {
+    outline: 0.15rem solid #B65F4A;
+    outline-offset: 0.2rem;
+}
+
+/* ACTIVE: respuesta visual mientras mantenemos
+   presionado un enlace o botón */
+a:active,
+button:active {
+    box-shadow: inset 0 0 0 0.15rem #B65F4A;
+}
+
+/* ========== FIN INTERACCIONES ========== */
